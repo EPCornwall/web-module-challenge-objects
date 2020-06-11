@@ -30,19 +30,16 @@ const burger = {
   price: 18, 
   category: "Lunch",
   discount: function(str){
-    if(str === "student"){
-      return this.price*.75;
-    }
-    else if(str === "teacher"){
+    if(str === "student" || str ==="teacher"){
       return this.price*.75;
     }
     else{
       return this.price*.9;
     }
   }
-};
+}
 
-//console.log(burger.discount("teacher"))
+//console.log(burger.discount("public"))
 
 
 ///////////////Reviews (MVP)///////////////////
@@ -118,10 +115,16 @@ function getLastReview(arr) {
     {name:"Lauren", rating: 4, feedback: "Absolutely love that they have karaoke Fridays! Food and drink selection is okay."}]
 */
 
- function getReviewByRating(/* code here */) {
-    /* code here */
+ function getReviewByRating(arr, rat) {
+    let newArr = [];
+    for (let i=0; i<arr.length; i++){
+      if (arr[i].rating >= rat && arr[i].rating < rat+1){
+      newArr.push(arr[i]);
+      } 
+    }
+    console.log(newArr)
   }
-
+//getReviewByRating(reviews,4)
   
 /** STRETCH 2: Write a function called 'getLongestReview' that returns an array containing all reviews longer than 15 words. 
   
